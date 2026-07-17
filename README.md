@@ -107,8 +107,6 @@ Populated with live honeypot data, the map confirmed **over 30,000 brute-force R
 
 <img width="700" src="docs/images/attack-map-36hr.png" alt="Screenshot: Sentinel Workbook attack map after 36 hours of honeypot exposure"/>
 
-A second, single-IP drill-down query was also built for investigating a specific attacker's full activity once flagged from the map.
-
 ---
 
 ## Timeline of Build Events
