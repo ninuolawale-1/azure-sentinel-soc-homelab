@@ -97,7 +97,7 @@ An early PowerShell-based enrichment pipeline (capturing 4625 events locally and
 
 Built a **Sentinel Workbook** combining the enrichment query into a heatmap-style world map: each point is sized and color-graded (green → red) by `FailureCount`, and labeled with a "City (Country)" string for quick readability.
 
-Populated with live honeypot data, the map confirmed **over 30,000 brute-force RDP login attempts**, visualized by geographic origin — turning raw failed-logon noise into an at-a-glance picture of where attack traffic is actually coming from.
+Populated with live honeypot data, the map confirmed **over 90,000 brute-force RDP login attempts**, visualized by geographic origin — turning raw failed-logon noise into an at-a-glance picture of where attack traffic is actually coming from.
 
 **Map after ~12 hours of exposure:**
 
@@ -136,14 +136,14 @@ Populated with live honeypot data, the map confirmed **over 30,000 brute-force R
 - **Action:** Attacking IPs resolved to real-world city/country/coordinates.
 
 ### 7. Attack Map Visualization Completed
-- **Event:** Sentinel Workbook built with a heatmap world map driven by the enrichment query; live data confirmed over 30,000 captured brute-force attempts.
+- **Event:** Sentinel Workbook built with a heatmap world map driven by the enrichment query; live data confirmed over 90,000 captured brute-force attempts.
 - **Action:** End-to-end pipeline complete — from exposure, to detection, to enriched, visualized data.
 
 ---
 
 ## Summary
 
-This project built an intentionally exposed Windows VM honeypot to capture real-world RDP brute-force attempts, centralized those logs into Microsoft Sentinel via the AMA connector and a custom Data Collection Rule, and enriched attacking IPs with geolocation data using a Sentinel Watchlist and the `ipv4_lookup()` KQL function. That enriched data now powers a live Sentinel Workbook heatmap, which has captured and visualized **over 30,000 brute-force RDP login attempts** by geographic origin. Along the way, several real troubleshooting issues were resolved, including an Azure Monitor field-naming requirement (`TimeGenerated`) and a shift from an external API-based enrichment approach to a native Sentinel Watchlist. The result is a complete, end-to-end detection pipeline: from raw exposure, to log generation, to centralized SIEM visibility, to a live, analyst-facing attack map.
+This project built an intentionally exposed Windows VM honeypot to capture real-world RDP brute-force attempts, centralized those logs into Microsoft Sentinel via the AMA connector and a custom Data Collection Rule, and enriched attacking IPs with geolocation data using a Sentinel Watchlist and the `ipv4_lookup()` KQL function. That enriched data now powers a live Sentinel Workbook heatmap, which has captured and visualized **over 90,000 brute-force RDP login attempts** by geographic origin. Along the way, several real troubleshooting issues were resolved, including an Azure Monitor field-naming requirement (`TimeGenerated`) and a shift from an external API-based enrichment approach to a native Sentinel Watchlist. The result is a complete, end-to-end detection pipeline: from raw exposure, to log generation, to centralized SIEM visibility, to a live, analyst-facing attack map.
 
 ---
 
