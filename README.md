@@ -149,10 +149,12 @@ This project built an intentionally exposed Windows VM honeypot to capture real-
 
 ## Lessons Learned
 
-- Azure Monitor rejects a field literally named `timestamp` — it must be named `TimeGenerated` and formatted in ISO 8601 UTC.
-- Treat API keys as secrets even in "just a homelab" workflows — a live ipgeolocation.io key was exposed during development and had to be rotated.
-- An open NSG rule stacked with a disabled host firewall is a legitimate, deliberate honeypot design pattern for maximizing visibility — not a misconfiguration, when done intentionally and in an isolated environment.
-- Sentinel Watchlists combined with `ipv4_lookup()` are a cleaner, more Sentinel-native way to do IP enrichment than calling an external API at collection time — no external dependency or key management needed at query time.
+## Lessons Learned
+
+- **Standing up cloud infrastructure end to end** — going from a blank Azure subscription to a fully configured VM, Virtual Network, and NSG gave me a much better feel for how Azure's networking and compute pieces fit together than reading about them ever did.
+- **Actually working inside Microsoft Sentinel as a SIEM** — connecting data sources, configuring Data Collection Rules, writing and refining KQL queries, building Watchlists, and putting together a Workbook. Doing each of these hands-on made Sentinel click in a way that tutorials alone hadn't.
+- **A much deeper working knowledge of the broader Azure ecosystem** — how Log Analytics Workspaces, Azure Monitor, and Sentinel all depend on and feed into one another, and how a single misconfigured piece (like a field name) can quietly break the whole pipeline.
+- Along the way, also picked up some specific technical lessons: Azure Monitor rejects a field literally named `timestamp` (it must be `TimeGenerated`, in ISO 8601 UTC); treating API keys as secrets matters even in a homelab project; and an open NSG rule stacked with a disabled host firewall is a legitimate, deliberate honeypot design choice — not a misconfiguration — when done intentionally and in an isolated environment.
 
 ---
 
